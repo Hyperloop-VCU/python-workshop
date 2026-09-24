@@ -1,10 +1,24 @@
-from constants import *
+# Put this in print to make it colored text
+RED_TEXT     = "\x1b[0;31m"
+YELLOW_TEXT  = "\x1b[0;33m"
+RED_BACK     = "\x1b[0;41m"
+YELLOW_BACK  = "\x1b[0;43m"
+WHITE_BACK   = "\x1b[0;47m"
+RESET        = "\x1b[0m"
+CLEAR_SCREEN = "\x1b[2J\x1b[1;1H"
+BOLD_TEXT    = "\x1b[1m"
+
+# Size of board
+NUM_ROWS = 6
+NUM_COLS = 7
+# Number in a row to win
+NUM_IN_A_ROW = 4
+
 
 class Board:
     def __init__(self):
         # Create board
         self.board = list()
-        self.columnSizes = list()
         for i in range(NUM_COLS):
             self.board.append(list())
 
@@ -113,7 +127,7 @@ class Board:
         for i in range(NUM_ROWS -1, -1, -1):
 
             # Print left side of board
-            print(WHITE_BACK + " " + RESET, end='')
+            print_white_square(newline=False)
 
             # Print pieces and dividers
             for j in range(NUM_COLS * 2 - 1):
@@ -123,18 +137,41 @@ class Board:
                     # Print colored 'O' based off of which player is in spot
                     if (i < len(self.board[int(j/2)])):
                         if (self.board[int(j/2)][i] == 1):
-                            print(RED_TEXT + 'O' + RESET, end='')
+                            fancy_print("O", color="red", newline=False)
                         elif (self.board[int(j/2)][i] == 2):
-                            print(YELLOW_TEXT + 'O' + RESET, end='')
+                            fancy_print("O", color="yellow", newline=False)
                         else:
                             print(" ", end='')
                     else:
                         print(" ", end='')
             
             # Print right side of board
-            print(WHITE_BACK + " " + RESET, end='\n')
+            print_white_square(newline=True)
 
         # Print bottom of board
         for i in range(NUM_COLS * 2 + 1):
-            print(WHITE_BACK + " " + RESET, end='')
+            print_white_square(newline=False)
         print()
+
+
+
+def fancy_print(text, bold=False, color="white", newline=True):
+    settings = RESET
+
+    if color == "red":
+        settings += RED_TEXT
+    elif color == "yellow":
+        settings += YELLOW_TEXT 
+    if bold:
+        settings += BOLD_TEXT
+
+    if not newline:
+        print(settings + text + RESET, end='')
+    else:
+        print(settings + text + RESET)
+
+def print_white_square(newline=True):
+    if newline:
+        print(WHITE_BACK + " " + RESET)
+    else:
+        print(WHITE_BACK + " " + RESET, end='')

@@ -22,15 +22,15 @@ class Game:
 
             # Print player turn
             if (self.playerTurn == 1):
-                print(RED_TEXT + "Player " + str(self.playerTurn) + "'s turn" + RESET + "\nInput: ", end='')
+                fancy_print(f"Player {self.playerTurn}\'s turn", color="red")
             elif (self.playerTurn == 2):
-                print(YELLOW_TEXT + "Player " + str(self.playerTurn) + "'s turn" + RESET + "\nInput: ", end='')
+                fancy_print(f"Player {self.playerTurn}\'s turn", color="yellow")
             else:
                 self.error = "Invalid player number"
                 break
 
             # Get input
-            self.playerInput = input()
+            self.playerInput = input("Input: ")
 
             # Clear screen
             print(CLEAR_SCREEN, end='')
@@ -39,13 +39,13 @@ class Game:
                 break
 
             # Check if user input a valid column number
-            try:
-                num = int(self.playerInput)
-            except:
+            if not self.playerInput.isdigit():
                 self.error = "Invalid input"
                 continue
+            num = int(self.playerInput)
 
             result = self.board.placePiece(num, self.playerTurn)
+            
             if (result == -2):
                 self.error = "Column " + self.playerInput + " is full"
             elif (result == -1):
@@ -57,7 +57,6 @@ class Game:
                     self.playerTurn = 1
                 self.piecesPlaced += 1
                 if (self.piecesPlaced >= NUM_COLS * NUM_ROWS):
-                    # Game is a draw
                     self.board.printBoard()
                     print("\n\nGame is a draw")
                     break
@@ -66,9 +65,9 @@ class Game:
                 self.board.printBoard()
                 print("\n\n")
                 if (self.playerTurn == 1):
-                    print(RED_TEXT + BOLD_TEXT + "Player 1 wins" + RESET)
+                    fancy_print("Player 1 wins!", bold=True, color="red")
                 elif (self.playerTurn == 2):
-                    print(YELLOW_TEXT + BOLD_TEXT + "Player 2 wins!" + RESET)
+                    fancy_print("Player 1 wins!", bold=True, color="yellow")
                 break
 
 if __name__ == '__main__':
