@@ -24,7 +24,7 @@ class Board:
 
     def placePiece(self, column, player):
         # Return if column out of bounds
-        if (column > NUM_COLS | column < 1):
+        if (column > NUM_COLS or column < 1):
             return -1
         # Return if column is full
         if (len(self.board[column - 1]) >= NUM_ROWS):
@@ -85,9 +85,9 @@ class Board:
             self.pieceCount += 1
         # ----------------------- Check down right
         for i in range(1,4):
-            if (column + i >= NUM_COLS | self.top - i < 0):
+            if (column + i >= NUM_COLS or self.top - i < 0):
                 break
-            elif (self.top >= len(self.board[column + i])):
+            elif (self.top - i >= len(self.board[column + i])):
                 break
             if (self.board[column + i][self.top - i] != player):
                 break
@@ -108,9 +108,9 @@ class Board:
             self.pieceCount += 1
         # ----------------------- Check down left
         for i in range(1,4):
-            if (column - i < 0 | self.top - i < 0):
+            if (column - i < 0 or self.top - i < 0):
                 break
-            elif (self.top >= len(self.board[column - i])):
+            elif (self.top - 1 >= len(self.board[column - i])):
                 break
             if (self.board[column - i][self.top - i] != player):
                 break
