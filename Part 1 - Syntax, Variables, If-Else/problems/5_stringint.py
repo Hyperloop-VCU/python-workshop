@@ -8,6 +8,6 @@ userAge = input("Enter your age: ")
 
 ### do not modify below this line ##
 if userAge < 18:
-    print("Pass")
+    print("Access Denied")
 else:
-    print("Smash")
+    print("Access Granted")

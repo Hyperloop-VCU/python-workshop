@@ -9,4 +9,4 @@ print(x)
 if x > 18:
     print("yes")
 else:
-    pass
+    print("no")

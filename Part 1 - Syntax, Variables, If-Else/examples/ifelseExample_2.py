@@ -1,9 +1,8 @@
-userAge = 12
+securityLevel = 3
 
-if userAge < 18:
-    print("Pass")
-    print("User reported to FBI")
+if securityLevel < 5:
+    print("Access Denied")
 else:
-    print("Smash")
+    print("Access Granted")
 
 print("-----")
