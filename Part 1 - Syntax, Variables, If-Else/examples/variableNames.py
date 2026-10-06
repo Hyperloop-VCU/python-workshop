@@ -1,0 +1,11 @@
+x = 3
+y = 12
+i = 1
+Jim = 5.2
+j_i_m = 5
+_bob_ = 7
+pi = 3.1415926535
+PI = 3.14
+temp = 0
+kingKONG = "very big"
+KINGkong = "royal ape"

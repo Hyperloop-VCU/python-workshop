@@ -4,10 +4,12 @@ You may need to add lines of code.
 Remember - input("...") gives you a STRING, not a number.
 """
 
-userAge = input("Enter your age: ")
+inches = input("Enter value in inches: ")
 
 ### do not modify below this line ##
-if userAge < 18:
-    print("Access Denied")
+if inches < 12:
+    print("Under 1 foot")
+elif inches == 12:
+    print("Exactly 1 foot")
 else:
-    print("Access Granted")
+    print("Over 1 foot")

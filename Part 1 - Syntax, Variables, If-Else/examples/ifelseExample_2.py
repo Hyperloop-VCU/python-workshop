@@ -1,8 +1,11 @@
-securityLevel = 3
+robotBatteryPercent = 10
+robotBatteryDraw = 50
 
-if securityLevel < 5:
-    print("Access Denied")
+if robotBatteryPercent < 25:
+    print("Battery low.")
+    if robotBatteryDraw > robotBatteryPercent:
+        print("Robot needs more power.")
 else:
-    print("Access Granted")
-
-print("-----")
+    print("Battery above 25%")
+    if robotBatteryDraw >= 25:
+        print("Robot is using maximum power.")
