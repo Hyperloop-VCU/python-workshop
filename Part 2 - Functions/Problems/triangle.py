@@ -7,7 +7,7 @@ def triangle():
 
 main():
     triangle()
-    
+    mainloop()
     
     
 main()
