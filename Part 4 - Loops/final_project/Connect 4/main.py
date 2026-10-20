@@ -35,6 +35,7 @@ while(running and not gameWon):
     board.displayText(playerTurn, False)
     pygame.display.flip()
     print(error, end='')
+    error = ''
 
     # Get user input
     for event in pygame.event.get():
