@@ -1,14 +1,14 @@
-''' Connect 4
+""" Connect 4
 
 This is the classic game Connect 4
 
 In this file is all of the code to manage timing and user input
 
 IDEAS
-- Read different input from the user
-- Add the input string as text onto the screen
-
-'''
+- To send the input to the program, instead of pressing 'enter', the user presses 'space'
+- Make it so the game never ends
+- Make it so the player places a piece in a random position whenever they play
+"""
 
 import pygame
 from board import *
@@ -111,3 +111,4 @@ class Game:
 if __name__ == '__main__':
     game = Game()
     game.run()
+    exit()
