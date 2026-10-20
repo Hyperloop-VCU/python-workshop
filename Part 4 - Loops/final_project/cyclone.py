@@ -131,6 +131,9 @@ def is_space_pressed():
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
             return True
+        elif event.type == pygame.QUIT:
+            pygame.quit()
+            exit()
     return False
 
 
